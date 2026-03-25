@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Audit Tool</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>🔍 Website Audit Tool</h1>
+    <p>Paste a URL to get AI-powered SEO & UX insights</p>
+  </header>
+
+  <main>
+    <!-- Input Section -->
+    <section class="input-section">
+      <input type="url" id="urlInput" placeholder="https://example.com" />
+      <button id="auditBtn">Run Audit</button>
+    </section>
+
+    <!-- Loading State -->
+    <div id="loader" class="hidden">
+      <div class="spinner"></div>
+      <p>Scraping page and generating AI insights...</p>
+    </div>
+
+    <!-- Error -->
+    <div id="errorBox" class="hidden error"></div>
+
+    <!-- Results -->
+    <div id="results" class="hidden">
+
+      <!-- Metrics Card -->
+      <section class="card">
+        <h2>📊 Factual Metrics</h2>
+        <div class="metrics-grid">
+          <div class="metric"><span class="label">Meta Title</span><span id="metaTitle" class="value"></span></div>
+          <div class="metric"><span class="label">Meta Description</span><span id="metaDesc" class="value"></span></div>
+          <div class="metric"><span class="label">Word Count</span><span id="wordCount" class="value"></span></div>
+          <div class="metric"><span class="label">H1 / H2 / H3</span><span id="headings" class="value"></span></div>
+          <div class="metric"><span class="label">Internal Links</span><span id="internalLinks" class="value"></span></div>
+          <div class="metric"><span class="label">External Links</span><span id="externalLinks" class="value"></span></div>
+          <div class="metric"><span class="label">Total Images</span><span id="totalImages" class="value"></span></div>
+          <div class="metric"><span class="label">Missing Alt Text</span><span id="missingAlt" class="value"></span></div>
+          <div class="metric"><span class="label">CTAs Found</span><span id="ctaCount" class="value"></span></div>
+        </div>
+      </section>
+
+      <!-- AI Insights Card -->
+      <section class="card">
+        <h2>🤖 AI Insights</h2>
+        <div class="insight"><h3>SEO Structure</h3><p id="seoInsight"></p></div>
+        <div class="insight"><h3>Messaging Clarity</h3><p id="messagingInsight"></p></div>
+        <div class="insight"><h3>CTA Usage</h3><p id="ctaInsight"></p></div>
+        <div class="insight"><h3>Content Depth</h3><p id="contentInsight"></p></div>
+        <div class="insight"><h3>UX Concerns</h3><p id="uxInsight"></p></div>
+      </section>
+
+      <!-- Recommendations Card -->
+      <section class="card">
+        <h2>✅ Recommendations</h2>
+        <ol id="recommendationsList"></ol>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
