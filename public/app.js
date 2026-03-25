@@ -64,4 +64,10 @@ function populateResults({ metrics, analysis }) {
     li.innerHTML = `<strong>${rec.title}</strong> — ${rec.reasoning}`;
     list.appendChild(li);
   });
+
+  // Prompt Logs
+  document.getElementById('logSystem').textContent = analysis.promptLog.systemContext;
+  document.getElementById('logUser').textContent = analysis.promptLog.userPrompt;
+  document.getElementById('logRaw').textContent = analysis.promptLog.rawModelOutput;
+  document.getElementById('promptLogCard').style.display = 'block';
 }
