@@ -109,3 +109,32 @@ button:disabled { background: #a0aec0; cursor: not-allowed; }
 #loader { text-align: center; padding: 2rem; }
 
 @keyframes spin { to { transform: rotate(360deg); } }
+
+details {
+  margin-bottom: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+details summary {
+  cursor: pointer;
+  color: #2b6cb0;
+  font-size: 0.9rem;
+}
+
+details[open] summary {
+  margin-bottom: 0.75rem;
+}
+
+pre {
+  background: #f7fafc;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #2d3748;
+  margin-top: 0.5rem;
+}
