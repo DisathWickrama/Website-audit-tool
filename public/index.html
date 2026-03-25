@@ -65,6 +65,28 @@
       </section>
 
     </div>
+    <!-- Prompt Logs Card -->
+      <section class="card" id="promptLogCard" style="display:none;">
+        <h2>🧾 Prompt Logs</h2>
+        <p style="color:#718096; font-size:0.85rem; margin-bottom:1rem;">
+          Full transparency into the AI layer — exactly what was sent and received.
+        </p>
+
+        <details>
+          <summary><strong>System Prompt</strong></summary>
+          <pre id="logSystem"></pre>
+        </details>
+
+        <details>
+          <summary><strong>User Prompt (with injected metrics)</strong></summary>
+          <pre id="logUser"></pre>
+        </details>
+
+        <details>
+          <summary><strong>Raw Model Output</strong></summary>
+          <pre id="logRaw"></pre>
+        </details>
+      </section>
   </main>
 
   <script src="app.js"></script>
