@@ -3,7 +3,7 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 async function analyzePage(metrics) {
-  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
 
   // ── System context ─────────────────────────────────────
   const systemContext = `You are a senior web strategist at a marketing agency specializing in 
@@ -63,4 +63,4 @@ Return this exact JSON structure:
   return parsed;
 }
 
-module.exports = { analyzePage };
+module.exports = { analyzePage };   
