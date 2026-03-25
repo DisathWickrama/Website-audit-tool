@@ -117,8 +117,8 @@ Every audit response includes a `promptLog` field in the JSON with:
 - `userPrompt` — the full structured prompt including all metrics
 - `rawModelOutput` — the unformatted response directly from Gemini
 
-You can inspect these by opening your browser DevTools → Network tab → 
-click the `/audit` request → view the Response JSON.
+These are visible directly in the UI under the "🧾 Prompt Logs" 
+section after running an audit, with collapsible panels for each.
 
 ---
 
@@ -128,4 +128,4 @@ click the `/audit` request → view the Response JSON.
 - **Scraping:** Axios + Cheerio
 - **AI:** Google Gemini Flash (via `@google/generative-ai`)
 - **Frontend:** Vanilla HTML, CSS, JavaScript
-- **Deployment:** Render.com
+- **Deployment:** Railway.app
