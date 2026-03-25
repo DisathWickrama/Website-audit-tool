@@ -1,16 +1,12 @@
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const Anthropic = require('@anthropic-ai/sdk');
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 async function analyzePage(metrics) {
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
-
-  // ── System context ─────────────────────────────────────
   const systemContext = `You are a senior web strategist at a marketing agency specializing in 
 SEO, conversion optimization, and UX. You analyze webpages and provide specific, 
 data-driven insights. Always reference the exact metrics provided. Never give generic advice.`;
 
-  // ── Build the structured prompt ────────────────────────
   const userPrompt = `
 Analyze this webpage audit data and return a JSON object only (no markdown, no extra text).
 
@@ -45,15 +41,18 @@ Return this exact JSON structure:
   ]
 }`;
 
-  // ── Call Gemini ────────────────────────────────────────
-  const result = await model.generateContent(`${systemContext}\n\n${userPrompt}`);
-  const rawText = result.response.text();
+  const response = await client.messages.create({
+    model: 'claude-haiku-4-5-20251001',
+    max_tokens: 1500,
+    system: systemContext,
+    messages: [{ role: 'user', content: userPrompt }],
+  });
 
-  // ── Parse the JSON response ────────────────────────────
+  const rawText = response.content[0].text;
   const cleaned = rawText.replace(/```json|```/g, '').trim();
   const parsed = JSON.parse(cleaned);
 
-  // ── Attach prompt logs (required deliverable!) ─────────
+  // Attach prompt logs (required deliverable!)
   parsed.promptLog = {
     systemContext,
     userPrompt,
@@ -63,4 +62,4 @@ Return this exact JSON structure:
   return parsed;
 }
 
-module.exports = { analyzePage };   
+module.exports = { analyzePage };
