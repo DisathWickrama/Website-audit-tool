@@ -3,7 +3,7 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 async function analyzePage(metrics) {
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+  const model = genAI.getGenerativeModel({ model: 'gemini-flash-latest' });
 
   const systemContext = `You are a senior web strategist at a marketing agency specializing in 
 SEO, conversion optimization, and UX. You analyze webpages and provide specific, 
